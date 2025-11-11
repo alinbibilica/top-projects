@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <div class="container">
+
+        <div class="left_side main_class ">
+            <div class="leftLogo">
+                <img src="odin-lined.png" alt="Odin Logo">
+                <h1>ODIN</h1>
+                 
+            </div>
+            <div class="attr"><p>Photo by <a href="https://unsplash.com/@kevinmueller?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Kevin Mueller</a> on <a href="https://unsplash.com/photos/black-bird-close-up-photography-iBER-hi4DyU?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></p></div>
+        </div>
+
+        <div class="right_side main_class">
+
+                <div class="header">
+                    <h3>This is not a real online service! You know you need something like this in your life to help you realize your deeepest dreams.
+                        <br>Sign up <i>now</i> to get started.
+                        <br><br>
+                        You <i>know</i> you want to.
+                    </h3>
+                </div>
+                <div class="myForm">
+                        <form action="" method="get">
+                            
+
+                            <fieldset>
+                                <legend>Let's do this!</legend>
+                               
+
+                                <div>
+                            <label for="firstName">First Name:</label>
+                            <input type="text" name="first_name" id="firstName">
+                                 </div>
+
+                                 <div>
+                            <label for="lastName">Last Name:</label>
+                            <input type="text" name="last_name" id="lastName">
+                                 </div>
+
+                             <div>
+                            <label for="email">eMail:</label>
+                            <input type="email" name="email" id="email" required>
+                                    </div>
+
+                                    <div>
+                            <label for="phone">Phone number:</label>
+                            <input type="tel" name="phone" id="phone">
+                                        </div>
+
+                                        <div>
+                            <label for="password">Password:</label>
+                            <input type="password" name="password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="TOP! at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+                                                    </div>
+
+                                                    <div>
+                            <label for="confPassword">Confirm Password:</label>
+                            <input type="password" name="confPassword" id="confPassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="TOP! at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+                                                        </div>
+                            </fieldset>
+
+                            <button type="submit">Create Account</button>
+
+                        </form>
+                        <div class="alreadyUser"><p>Already have an account? 
+                            <a href="www.theodinproject.com">Sign in!</a>
+</p></div>
+                </div>
+
+
+             </div>
+
+
+    </div>
+    
+    <script src="js.js"></script>
+</body>
+</html>

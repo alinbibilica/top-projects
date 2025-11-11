@@ -1,0 +1,197 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;  
+}
+
+@font-face {
+    font-family: "odinFont";
+    src: url(Norse-Bold.otf);
+}
+.container{
+    display: flex;
+        height: 100vh;
+        width: 80vw;
+        /* border:3px dotted blue; */
+        margin: auto;
+
+}
+
+
+.main_class{
+    display:flex;
+    height: 100vh;
+    width:auto;
+    border: 1px solid black;
+}
+
+.left_side{
+    width: 40%;
+    background: url(background.jpg);
+    background-size:cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    display:flex;
+    flex-direction: column;
+     
+}
+.attr {
+    position:relative;
+    top: 70%;
+    text-align: center;
+}
+
+.leftLogo{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row; 
+    align-items:center;
+    justify-content: center;
+    width:100%;
+    height: 20%;
+    /* border: 1px solid white; */
+    position:relative;
+    top: 15%;
+    background-color:  rgba(0,0,0,0.2); 
+}
+
+ .leftLogo > img{
+    object-fit: contain;
+    width:auto;
+    height: 70%;
+ }
+
+ .leftLogo h1{
+    font-family: odinFont;
+    font-size: 5rem;
+ }
+
+.right_side{
+    width: 60%;
+    background-color: rgb(241, 241, 221);
+    display:flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+ .header {
+    width: 100%;
+    height:fit-content;
+    /* border: 1px solid black; */
+    height:20%;
+    position:relative;
+    top: 15%;
+    overflow: auto;
+    padding: 20px;
+    text-align: left;
+   
+ }
+
+ .myForm{
+    
+    /* border: 1px solid blue; */
+    height: auto;
+    top:15%;
+    position: relative;
+    width: 100%;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: aliceblue;
+    box-shadow: 0px 5px 10px;
+    padding: 20px 10px 10px 20px;
+    
+ }
+
+ input {
+  
+   display:block;
+   border-radius: 5px;
+   border-width: 1px;
+ }
+
+ input[type="password"]:invalid{
+    border-color: red;
+    border-width: 2px;
+    background-color: lightcoral;
+ }
+
+ input:focus{
+    border-color: rgb(114, 8, 253);
+    box-shadow: 5px 5px 10px;
+ }
+
+ fieldset {
+    /* border: 1px solid black; */
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 20px 10px;
+    padding: 20px;
+    /* overflow: auto; */
+    border-radius: 1em;
+    
+    
+ }
+
+ button {
+    margin-top: 10px;
+    background-image: url(background.jpg);
+    color: white;
+    border-radius: 5px;
+    width: fit-content;
+    padding: 0px 10px 0px 10px;
+    height: 50px;
+ }
+
+ legend {
+    font-weight: bold;
+    font-size: larger;
+    
+ }
+
+ .alreadyUser {
+     
+    padding: 20px 0px;
+ }
+
+ @media (max-width:412px){
+    .container{
+        flex-direction: column;
+        height: 100vh
+    }
+
+    .left_side {
+        width: 100vw;
+        height:30%;
+    }
+    .right_side{
+        width: 100vw;
+        height: auto;
+    }
+    .header{
+        
+    position:relative;
+    top:0%;
+    text-align: center;
+    height: fit-content;
+    padding: 5px;
+    width: auto;
+    }
+
+    fieldset {
+        grid-template-columns: 100%;
+           gap: 10xp 10px;
+         padding: 10px;
+    }
+
+    .myForm{
+    
+    /* border: 1px solid blue; */
+    height: auto;
+    top:5%;
+    display: flex;
+    flex-direction: column;
+    }
+ }
