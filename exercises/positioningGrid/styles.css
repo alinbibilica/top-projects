@@ -1,0 +1,43 @@
+.container{
+    display: inline-grid;
+    background-color: lightblue;
+
+    grid-template: 40px 40px 40px 40px 40px / 40px 40px 40px 40px 40px;
+grid-template-areas:
+    "living-room living-room living-room living-room living-room"
+    "living-room living-room living-room living-room living-room"
+    "bedroom bedroom bathroom kitchen kitchen"
+    "bedroom bedroom bathroom kitchen kitchen"
+    "closet closet . . ."
+}
+
+.room {
+    border: 1px solid;
+    font-size: 50%;
+    text-align: center;
+ 
+}
+
+#living-room {
+  grid-area: living-room;
+}
+
+#kitcken {
+    grid-area: kitchen;
+    background-color: rgb(137, 253, 137);
+}
+
+#bedroom {
+    grid-area: bedroom;
+    background-color: rgb(252, 130, 130);
+}
+
+#bathroom {
+ grid-area: bathroom;
+ background-color: rgb(218, 218, 245);
+}
+
+#closet {
+ grid-area: closet;
+ background-color: gainsboro;
+}
