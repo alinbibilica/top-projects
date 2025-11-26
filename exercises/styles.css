@@ -1,0 +1,35 @@
+.container {
+    
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 3fr 2fr;
+    grid-template-rows: 1fr 2fr 1fr;
+    gap: 10px 10px;
+    justify-content: space-around;
+    align-content: space-around;
+     
+   
+}
+
+ 
+
+.items{
+      
+    
+    background-image: url(/top-projects/signUpForm/background.jpg);
+    background-position: center;
+    /* border-radius: 2rem; */
+ 
+}
+
+ 
+.items:nth-child(odd):hover{
+    background-size: cover;
+    box-shadow: 5px 10px 10px;
+}
+
+.items:nth-child(even):hover{
+    background-size: contain;
+    background-position: center;
+  
+}
