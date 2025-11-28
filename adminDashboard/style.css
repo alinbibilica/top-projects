@@ -96,7 +96,10 @@
     display:flex;
     justify-content: space-around;
     align-items: center;
+}
 
+.userInfo > p {
+    font-weight: bold;
 }
 
 .headerButtons{
