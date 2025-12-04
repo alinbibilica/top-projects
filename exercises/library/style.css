@@ -19,7 +19,7 @@
     font-optical-sizing: auto;
     border: none;
    
-     background-image: url(images/glass.jpg);
+     background-image: url(/images/glass.jpg);
      background-size: cover;
    
     display: flex;
@@ -71,7 +71,7 @@
 .library{
     border: none;
     /* background-color:aliceblue; */
-    background-image: url(images/headerBackground1.jpg);
+    background-image: url(/images/headerBackground1.jpg);
     background-size: cover;
     width:100%;
     height: auto;
