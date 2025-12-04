@@ -44,12 +44,7 @@ function addBookToLibrary(title, author, noOfPages){
 let libraryContainer = document.getElementById('library');
 //functie care adauga elementele in DOM
 function addElements(){
-    
-    
 
-    myLibrary.forEach((item)=>{
-
-        
         let bookTitle = document.createElement('div');
         let bookAuthor = document.createElement('div');
         let bookPages = document.createElement('div');
@@ -58,8 +53,10 @@ function addElements(){
         let bookStatus = document.createElement('div');
         let bookRemoveButton = document.createElement('button');
 
+    myLibrary.forEach((item)=>{
 
-        bookTitle.innerText = `Title: "${item.title.value}"`;
+
+        bookTitle.innerText = `${item.title.value}`;
         bookAuthor.innerText = ` Written by: "${item.author.value}".`;
         bookPages.innerText = `Pages: ${item.nrOfPages.value}`;
         bookStatus.innerText = `Status: ${item.status.value}`;
@@ -75,10 +72,14 @@ function addElements(){
 
         booksCard.classList.add("books");
         
-         libraryContainer.appendChild(booksCard);
+
+
+        libraryContainer.appendChild(booksCard);
     }
     )
-   
+        
+        if(bookStatus.innerText === 'Status: Read'){bookStatus.style.color="green";}    //change color of status based on value
+        else bookStatus.style.color="red";                                              //change color of status based on value
  };
 
 
