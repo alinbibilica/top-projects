@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My First library</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="header">
+
+            <h1>Babylon Library</h1>
+            <input type="button" value="Add book" id="addBookButton">
+
+            <div class="addBookForm" id="addBookForm">
+                
+                <form action="/exercises/library/" method="post">
+
+                    <label for="bookTitle"></label>
+                    <input type="text" name="bookTitle" id="bookTitle" placeholder="Book title">
+
+                    <label for="bookAuthor"></label>
+                    <input type="text" name="bookAuthor" id="bookAuthor" placeholder="Author">
+
+                    <label for="bookPages"></label>
+                    <input type="text" name="bookPages" id="bookPages" placeholder="Nr. Of Pages">
+
+                    <label for="bookStatus">Status:</label>
+                    <select name="bookStatus" id="bookStatus"  autofocus>
+                        
+                        <optgroup label="Choose state">
+                            <option value="read">Read</option>
+                            <option value="notRead">Not Read</option>
+                        </optgroup>
+                    </select>
+
+                    <button type="submit">Add Book</button>
+                    <button type="button" id="closeButton">X</button>
+                </form>
+            </div>
+        </div>
+        <div class="library" id="library">
+        </div>
+        <div class="footer">
+            <p>Made by Alin BB</p>
+        </div>
+    </div>
+
+    <script src="javascript.js"></script>
+</body>
+</html>

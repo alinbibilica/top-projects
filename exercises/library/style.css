@@ -1,0 +1,117 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+.container{
+    height: 100vh;
+    border: 2px solid black;
+    padding: 3px;
+    display:grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 10% 80% 10%;
+}
+
+.header{
+    border: 1px solid black;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+ 
+.header > input[type='button'] {
+    width: fit-content;
+    padding: 3px 20px 3px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: lightcoral;  
+}
+
+.header > input[type='button']:hover {
+    width: fit-content;
+    background-color: lightblue;
+}
+/* add book form - display set to none - will be changed on header + button click */
+#addBookForm{
+    display: none;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    gap:10px;
+    border: 1px solid black;
+    background-color: rgb(241, 129, 129);
+    color: white;
+    padding: 40px;
+}
+
+#addBookForm > form {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+}
+
+#addBookForm button {
+    margin-top: 10px;
+    background-color: rgb(250, 213, 213);
+    border:none;
+    width: 70%;
+}
+
+.library{
+    border: 1px solid black;
+    width:100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    /* grid-template-rows: 1fr 1fr 1fr; */
+    grid-template-rows: repeat (30%);
+    grid-auto-rows: auto;
+    gap: 5px;
+    padding: 10px;
+    overflow:scroll;
+}
+
+
+.footer {
+    border: 1px solid black;
+    text-align: center;
+    font-size: larger;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* books cards  */
+
+.books {
+    border: 1px solid black;
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding: 20px;
+    gap: 10px;
+    justify-content: center;
+    /* width: minmax(200px , 30%);
+    height: minmax(200px , 30%); */
+}
+
+.books > div:first-child{
+    font-weight: bolder;
+    border-bottom: 1px solid black;
+}
+
+.books > div:nth-child(2){
+    font-style: italic;
+    color: rgba(141, 126, 126, 0.877);
+}
+
+.books > button {
+    width: 50%;
+    align-self: center;
+}
