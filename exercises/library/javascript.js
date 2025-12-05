@@ -1,4 +1,4 @@
-const myLibrary = [];
+const myLibrary = [];   //array to store books
 
 const library1 = document.getElementById("library");  //main container to display library books
 
@@ -6,7 +6,9 @@ const addButton = document.getElementById('addBookButton'); // Add Book Button u
 const closeButton = document.getElementById('closeButton'); // button to close the "add book form" if user decides not to add a new book
 const addBookForm = document.getElementById('addBookForm'); // Add Book Form where users inputs his book details to add them to the library
 const submitBookButton = document.getElementById('submitNewBook'); // Add New Book Submit button
- 
+const removeButton = document.getElementsByClassName('bookButton');
+
+
 addButton.addEventListener("click", function(e){
     addBookForm.style.display = "grid";
 });
@@ -14,6 +16,17 @@ addButton.addEventListener("click", function(e){
 closeButton.addEventListener("click", function(e){
     addBookForm.style.display = "none";
 });
+
+//add event listener to the container (library) so we can target the "remove" button which is create dinamically
+library1.addEventListener("click", function(e){
+    if(e.target.classList.contains('bookButton')){
+        const bookUniqueId = e.target.getAttribute('data-book-id'); //get unique if for clicked div
+        const divToDelete = document.querySelector(`[data-book-id="${bookUniqueId}"]`); //target the books div that has the data attribute equal to clicked remove button
+        divToDelete.remove();
+        //console.log(divToDelete);
+        //console.log(`event listener care da unique id al divului : ${bookUniqueId}`);
+    }
+})
 
 function Book(title, author, nrOfPages ){
     if(!new.target){
@@ -69,6 +82,10 @@ function addElements(){
         booksCard.appendChild(bookId);
         booksCard.appendChild(bookStatus);
         booksCard.appendChild(bookRemoveButton);
+        bookRemoveButton.dataset.bookId = item.idNr;
+        booksCard.dataset.bookId = item.idNr;
+
+        bookRemoveButton.classList.add("bookButton"); //add a class off "bookBUtton" to the Remove button 
 
         booksCard.classList.add("books");
         
@@ -99,21 +116,8 @@ submitBookButton.addEventListener("click", function(e){
     console.log(myLibrary);
 
     addElements();
+    console.log(removeButton);
+ 
 });
 
-
-// addBookToLibrary('main theme', 'jackson', 5);
-// addBookToLibrary('the covenent', 'winon rider', 522);
-// addBookToLibrary('main theme', 'jackson', 5);
-// addBookToLibrary('the covenent', 'winon rider', 522);
-// addBookToLibrary('main theme', 'jackson', 5);
-// addBookToLibrary('the covenent', 'winon rider', 522);
-// addBookToLibrary('main theme', 'jackson', 5);
-
-
-
-
-
- //addElements();
-
- console.log(myLibrary)
+ 
