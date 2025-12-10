@@ -8,7 +8,6 @@ const addBookForm = document.getElementById('addBookForm'); // Add Book Form whe
 const submitBookButton = document.getElementById('submitNewBook'); // Add New Book Submit button
 const removeButton = document.getElementsByClassName('bookButton');
 
-
 addButton.addEventListener("click", function(e){
     addBookForm.style.display = "grid";
 });
@@ -18,20 +17,25 @@ closeButton.addEventListener("click", function(e){
 });
 
 
- 
-
 //add event listener to the container (library) so we can target the "remove" button which is create dinamically
 library1.addEventListener("click", function(e){
     const bookUniqueId = e.target.getAttribute('data-book-id'); //get unique if for clicked div
-   
-    
+    const changeButton = e.target.classList.contains('bookStatus');    
+
     if(e.target.classList.contains('bookButton')){
         const divToDelete = document.querySelector(`[data-book-id="${bookUniqueId}"]`); //target the books div that has the data attribute equal to clicked remove button
         divToDelete.remove();
-        //console.log(divToDelete);
-        //console.log(`event listener care da unique id al divului : ${bookUniqueId}`);
     }
-    
+
+    if(changeButton){
+        if(e.target.innerText === 'Status: Read'){
+            e.target.innerText = 'Status: Not Read';
+            e.target.style.color = "red";
+        }
+        else { e.target.innerText = 'Status: Read';
+                e.target.style.color="green";
+         }
+    }
 
     
 })
@@ -54,7 +58,6 @@ Book.prototype.getStatus = function(){
     this.status = bookStatus;
 }
  
-
 function addBookToLibrary(title, author, noOfPages){
     const addBook = new Book(title, author, noOfPages);
     addBook.getId();
@@ -66,7 +69,6 @@ function addBookToLibrary(title, author, noOfPages){
 let libraryContainer = document.getElementById('library');
 //functie care adauga elementele in DOM
 function addElements(){
-
         let bookTitle = document.createElement('div');
         let bookAuthor = document.createElement('div');
         let bookPages = document.createElement('div');
@@ -74,11 +76,9 @@ function addElements(){
         let bookId = document.createElement('div');
         let bookStatus = document.createElement('div');
         let bookRemoveButton = document.createElement('button');
-        let bookChangeStatusButton =document.createElement('button');
+        
 
     myLibrary.forEach((item)=>{
-
-
         bookTitle.innerText = `${item.title.value}`;
         bookAuthor.innerText = ` Written by: "${item.author.value}".`;
         bookPages.innerText = `Pages: ${item.nrOfPages.value}`;
@@ -86,41 +86,26 @@ function addElements(){
         bookId.innerText = `Book Id: ${item.idNr}`;
         bookRemoveButton.innerText = `Remove`;
 
-        const bookStat = item.status.value;
-
-        if(bookStat == "Read"){
-            bookChangeStatusButton.innerText = "Change status to: Not Read";
-        }
-        else {bookChangeStatusButton.innerText="Change status to: Read"};
-
         booksCard.appendChild(bookTitle);
         booksCard.appendChild(bookAuthor);
         booksCard.appendChild(bookPages);
         booksCard.appendChild(bookId);
         booksCard.appendChild(bookStatus);
         booksCard.appendChild(bookRemoveButton);
-        booksCard.appendChild(bookChangeStatusButton);
-      
+        
         bookRemoveButton.dataset.bookId = item.idNr;
-        bookChangeStatusButton.dataset.bookId = item.idNr;
         booksCard.dataset.bookId = item.idNr;
 
         bookRemoveButton.classList.add("bookButton"); //add a class off "bookBUtton" to the Remove button 
-        bookChangeStatusButton.classList.add("bookChangeStatus"); //add a class of "bookChangeStatus" to the Change status button
         bookStatus.classList.add("bookStatus");
         booksCard.classList.add("books");
         
-
-
         libraryContainer.appendChild(booksCard);
     }
     )
-        
         if(bookStatus.innerText === 'Status: Read'){bookStatus.style.color="green";}    //change color of status based on value
         else bookStatus.style.color="red";                                              //change color of status based on value
  };
-
-
 
 
 submitBookButton.addEventListener("click", function(e){
@@ -131,18 +116,10 @@ submitBookButton.addEventListener("click", function(e){
     const newBookNrOfPages = document.getElementById("bookPages");
     const newBookStatus = document.getElementById("bookStatus");
 
- 
-    console.log(newBookAuthor.reportValidity());
-   
     event.preventDefault();
 
-    console.log(`Book title is: ${newBookTitle.value} written by ${newBookAuthor.value} , it has ${newBookNrOfPages.value} pages and it was ${newBookStatus.value}`);
-
     addBookToLibrary(newBookTitle, newBookAuthor, newBookNrOfPages);
-    console.log(myLibrary);
-
     addElements();
-    console.log(removeButton);
  
 });
 

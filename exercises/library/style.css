@@ -96,6 +96,20 @@
 }
 
 /* books cards  */
+/* .bookStatus {
+    border: 1px solid black;
+
+} */
+
+.bookStatus:before {
+    content: "Change →   ";
+    color: white;
+   
+    background-color: rgb(26, 51, 23);
+    
+}
+
+
 
 .books {
     border: 1px solid rgb(238, 227, 227);
