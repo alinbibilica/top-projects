@@ -17,15 +17,23 @@ closeButton.addEventListener("click", function(e){
     addBookForm.style.display = "none";
 });
 
+
+ 
+
 //add event listener to the container (library) so we can target the "remove" button which is create dinamically
 library1.addEventListener("click", function(e){
+    const bookUniqueId = e.target.getAttribute('data-book-id'); //get unique if for clicked div
+   
+    
     if(e.target.classList.contains('bookButton')){
-        const bookUniqueId = e.target.getAttribute('data-book-id'); //get unique if for clicked div
         const divToDelete = document.querySelector(`[data-book-id="${bookUniqueId}"]`); //target the books div that has the data attribute equal to clicked remove button
         divToDelete.remove();
         //console.log(divToDelete);
         //console.log(`event listener care da unique id al divului : ${bookUniqueId}`);
     }
+    
+
+    
 })
 
 function Book(title, author, nrOfPages ){
@@ -46,6 +54,7 @@ Book.prototype.getStatus = function(){
     this.status = bookStatus;
 }
  
+
 function addBookToLibrary(title, author, noOfPages){
     const addBook = new Book(title, author, noOfPages);
     addBook.getId();
@@ -65,6 +74,7 @@ function addElements(){
         let bookId = document.createElement('div');
         let bookStatus = document.createElement('div');
         let bookRemoveButton = document.createElement('button');
+        let bookChangeStatusButton =document.createElement('button');
 
     myLibrary.forEach((item)=>{
 
@@ -76,17 +86,28 @@ function addElements(){
         bookId.innerText = `Book Id: ${item.idNr}`;
         bookRemoveButton.innerText = `Remove`;
 
+        const bookStat = item.status.value;
+
+        if(bookStat == "Read"){
+            bookChangeStatusButton.innerText = "Change status to: Not Read";
+        }
+        else {bookChangeStatusButton.innerText="Change status to: Read"};
+
         booksCard.appendChild(bookTitle);
         booksCard.appendChild(bookAuthor);
         booksCard.appendChild(bookPages);
         booksCard.appendChild(bookId);
         booksCard.appendChild(bookStatus);
         booksCard.appendChild(bookRemoveButton);
+        booksCard.appendChild(bookChangeStatusButton);
+      
         bookRemoveButton.dataset.bookId = item.idNr;
+        bookChangeStatusButton.dataset.bookId = item.idNr;
         booksCard.dataset.bookId = item.idNr;
 
         bookRemoveButton.classList.add("bookButton"); //add a class off "bookBUtton" to the Remove button 
-
+        bookChangeStatusButton.classList.add("bookChangeStatus"); //add a class of "bookChangeStatus" to the Change status button
+        bookStatus.classList.add("bookStatus");
         booksCard.classList.add("books");
         
 
@@ -100,6 +121,8 @@ function addElements(){
  };
 
 
+
+
 submitBookButton.addEventListener("click", function(e){
     console.log("submit pressed");
 
@@ -108,6 +131,9 @@ submitBookButton.addEventListener("click", function(e){
     const newBookNrOfPages = document.getElementById("bookPages");
     const newBookStatus = document.getElementById("bookStatus");
 
+ 
+    console.log(newBookAuthor.reportValidity());
+   
     event.preventDefault();
 
     console.log(`Book title is: ${newBookTitle.value} written by ${newBookAuthor.value} , it has ${newBookNrOfPages.value} pages and it was ${newBookStatus.value}`);
